@@ -1,9 +1,9 @@
+import { InputText, TextLabel } from "@/components/forms";
+import AuthLayout from "@/layouts/AuthLayout";
+import { createTransaction } from "@/slices/transactionSlice";
+import { RootState } from "@/store";
 import React from "react";
-import AuthLayout from "../layouts/AuthLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store";
-import { InputText, TextLabel } from "../components/forms";
-import { createTransaction } from "../slices/transactionSlice";
 
 interface CreateTransactionContentProps { }
 

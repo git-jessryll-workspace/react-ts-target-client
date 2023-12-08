@@ -1,11 +1,11 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { InputText, TextLabel } from "../components/forms";
-import { Logo } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Swal from 'sweetalert2'
-import { loginUser } from "../slices/userSlice";
 import withReactContent from 'sweetalert2-react-content'
+import { Logo } from "@/components";
+import { loginUser } from "@/slices/userSlice";
+import { InputText, TextLabel } from "@/components/forms";
 const swal = withReactContent(Swal);
 
 interface LoginContentProps { }
@@ -41,14 +41,14 @@ const LoginContent: React.FC<LoginContentProps> = () => {
             timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
             }
-          });
-          Toast.fire({
+        });
+        Toast.fire({
             icon: "success",
             title: "Signed in successfully"
-          }).then(() => navigate('/transactions'));
+        }).then(() => navigate('/transactions'));
     };
 
     return (

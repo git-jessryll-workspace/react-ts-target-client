@@ -46,16 +46,23 @@ export interface TransactionResponse {
 
 export const getTransactions = createAsyncThunk(
   "transaction/fetchtransactions",
-  async (token: string, { rejectWithValue }) => {
+  async (
+    {
+      token,
+      filter_by,
+    }: { token: string; filter_by: "TODAY" | "WEEK" | "MONTH" | "YEAR" | null },
+    { rejectWithValue }
+  ) => {
+    let _url = `${TRANSACTION_ENDPOINT}`;
+    if (filter_by) {
+      _url = `${_url}?filter_by=${filter_by}`;
+    }
     try {
-      const { data } = await axios.get<TransactionResponse>(
-        `${TRANSACTION_ENDPOINT}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const { data } = await axios.get<TransactionResponse>(_url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -130,7 +137,7 @@ export const transactionSlice = createSlice({
         _id: "",
         name: "",
         email: "",
-        picture: ""
+        picture: "",
       },
       group: {
         _id: "",

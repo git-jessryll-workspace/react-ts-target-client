@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom"
 import { CreateGroupContent, GroupDetailsContent, GroupsContent, LandingContent, LoginContent, RegisterContent, TransactionContent } from "./content"
 import { useSelector } from "react-redux"
-import { RouteElement } from "./components";
-import { RootState } from "./store";
+import { RouteElement } from "@/components";
+import { RootState } from "@/store";
 import { useEffect } from "react";
 import axios from "axios";
 

@@ -2,11 +2,13 @@ import React from "react"
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import AuthLayout from '../layouts/AuthLayout'
-import { getGroups } from "../slices/groupSlice";
-import { RootState } from "../store";
+import { RootState } from "@/store"
+import AuthLayout from "@/layouts/AuthLayout"
+import { getGroups } from "@/slices/groupSlice"
 
-export default function GroupsContent() {
+interface GroupsContentProps { }
+
+const GroupsContent: React.FC<GroupsContentProps> = () => {
     const dispatch = useDispatch();
     const { list } = useSelector((state: RootState) => state.group);
     const { user } = useSelector((state: RootState) => state.user)
@@ -71,3 +73,5 @@ export default function GroupsContent() {
     </AuthLayout>
     )
 }
+
+export default GroupsContent

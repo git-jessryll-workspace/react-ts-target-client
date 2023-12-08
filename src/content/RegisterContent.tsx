@@ -1,7 +1,7 @@
+import { Logo } from "@/components";
+import { InputText, TextLabel } from "@/components/forms";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom"
-import { InputText, TextLabel } from "../components/forms";
-import { Logo } from "../components";
 
 interface RegisterContentProps { }
 

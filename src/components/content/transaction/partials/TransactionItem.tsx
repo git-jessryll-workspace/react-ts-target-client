@@ -4,10 +4,10 @@ import {
     ArrowUpIcon,
     ChevronRightIcon
 } from "@heroicons/react/24/outline"
-import { Transaction } from "../../../../slices/transactionSlice"
-import { formatCurrency } from "../../../../utils/currency"
 import { useSelector } from "react-redux"
-import { RootState } from "../../../../store"
+import { Transaction } from "@/slices/transactionSlice"
+import { formatCurrency } from "@/utils/currency"
+import { RootState } from "@/store"
 
 const TransactionItem: React.FC<{ transaction: Transaction }> = ({ transaction }) => {
     const {user} = useSelector((state:RootState) => state.user);

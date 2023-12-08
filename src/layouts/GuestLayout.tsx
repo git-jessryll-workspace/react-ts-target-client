@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from "react";
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from "react-router-dom"
-import { Logo } from "../components";
+import { Logo } from "@/components";
 // const navigation = [
 //     { name: 'Product', href: '#' },
 //     { name: 'Features', href: '#' },

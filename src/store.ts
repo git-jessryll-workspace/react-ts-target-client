@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import createFilter from "redux-persist-transform-filter";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import { groupSlice, transactionSlice, userSlice } from "./slices";
+import { groupSlice, transactionSlice, userSlice } from "@/slices";
 
 // Assuming `RootState` is defined in your slices
 export type RootState = ReturnType<typeof rootReducer>;

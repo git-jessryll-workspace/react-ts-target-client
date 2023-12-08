@@ -1,5 +1,5 @@
+import AuthLayout from "@/layouts/AuthLayout"
 import React from "react"
-import AuthLayout from '../layouts/AuthLayout'
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import AuthLayout from '../layouts/AuthLayout'
-import { TransactionExpense, TransactionIncome, TransactionOverview, TransactionPeople, TransactionSetting } from "../components/content/transaction";
-import TransactionContentProvider from "../context/transactionProvider";
-import TransactionModal from "../components/content/transaction/partials/TransactionModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getGroups } from "../slices/groupSlice";
-import { RootState } from "../store";
-import { getTransactions } from "../slices/transactionSlice";
+import TransactionContentProvider from "@/context/transactionProvider";
+import { RootState } from "@/store";
+import AuthLayout from "@/layouts/AuthLayout";
+import { TransactionExpense, TransactionIncome, TransactionOverview, TransactionPeople, TransactionSetting } from "@/components/content/transaction";
+import TransactionModal from "@/components/content/transaction/partials/TransactionModal";
+import { getGroups } from "@/slices/groupSlice";
+import { getTransactions } from "@/slices/transactionSlice";
 
 function classNames(...classes: (string | boolean | undefined)[]) {
     return classes.filter(Boolean).join(' ')
@@ -29,18 +29,17 @@ const TransactionContent: React.FC<TransactionContentProps> = () => {
 
     const [tabs, setTabs] = React.useState<TransactionTab[]>([
         { name: 'Overview', href: '#', current: true },
-        { name: 'Expenses', href: '#', current: false },
         { name: 'Income', href: '#', current: false },
+        { name: 'Expenses', href: '#', current: false },
         { name: 'People', href: '#', current: false },
-        { name: 'Settings', href: '#', current: false },
     ])
 
     React.useEffect(() => {
         // @ts-ignore
         const getGroupsAction = async () => await dispatch(getGroups(token))
         // @ts-ignore
-        const getTransactionsAction = async () => await dispatch(getTransactions(token))
-        
+        const getTransactionsAction = async () => await dispatch(getTransactions({token}))
+
         getTransactionsAction();
         getGroupsAction();
     }, [token]);

@@ -1,6 +1,9 @@
-import GuestLayout from "../layouts/GuestLayout"
+import React from "react";
+import GuestLayout from "@/layouts/GuestLayout";
 
-const LandingContent = () => {
+interface LandingContentProps { }
+
+const LandingContent: React.FC<LandingContentProps> = () => {
     return <GuestLayout>
         <div className="relative pt-14">
             <div

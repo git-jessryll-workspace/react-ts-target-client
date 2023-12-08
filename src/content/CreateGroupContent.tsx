@@ -2,12 +2,12 @@ import React, { FormEvent } from "react";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
-import AuthLayout from "../layouts/AuthLayout";
-import { InputText, TextLabel } from "../components/forms";
-import { createGroup } from "../slices/groupSlice";
-import { RootState } from "../store";
-import { searchUsers } from "../slices/userSlice";
-import { swalPopupMessage } from "../lib/swal";
+import { RootState } from "@/store";
+import { searchUsers } from "@/slices/userSlice";
+import { createGroup } from "@/slices/groupSlice";
+import { swalPopupMessage } from "@/lib/swal";
+import AuthLayout from "@/layouts/AuthLayout";
+import { InputText, TextLabel } from "@/components/forms";
 interface CreateGroupContentProps { }
 interface InviteEmail {
     _id: string;

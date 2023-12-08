@@ -13,13 +13,14 @@ interface TransactionModalProps { }
 
 const TransactionModal: React.FC<TransactionModalProps> = () => {
     const dispatch = useDispatch();
+    const todayInput = new Date().toISOString().split('T')[0];
     const { list: groups } = useSelector((state: RootState) => state.group);
     const { openStatus: open, reset, transactionType } = React.useContext(TransactionContentContext) as TransactionContentContextProps;
     const [name, setName] = React.useState<string>("")
     const [amount, setAmount] = React.useState<string>("");
     const [note, setNote] = React.useState<string>("");
     const [groupTag, setGroupTag] = React.useState<any>();
-    const [transactionDate, setTransactionDate] = React.useState<string>(new Date().toISOString().split('T')[0])
+    const [transactionDate, setTransactionDate] = React.useState<string>(todayInput)
 
     const handleCreateTransaction = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -42,7 +43,7 @@ const TransactionModal: React.FC<TransactionModalProps> = () => {
             setAmount("");
             setNote("")
             setGroupTag(null);
-            setTransactionDate("")
+            setTransactionDate(todayInput)
         }
 
     }
