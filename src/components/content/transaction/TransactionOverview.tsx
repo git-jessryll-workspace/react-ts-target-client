@@ -4,10 +4,10 @@ import {
     PlusCircleIcon
 } from "@heroicons/react/24/outline"
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store";
-import { Stats, Transaction, getTransactions } from "../../../slices/transactionSlice";
 import { TransactionItem, StatItem } from "./partials";
-import { TransactionContentContext, TransactionContentContextProps } from "../../../context/transactionProvider";
+import { TransactionContentContext, TransactionContentContextProps } from "@/context/transactionProvider";
+import { RootState } from "@/store";
+import { Stats, Transaction, getTransactions } from "@/slices/transactionSlice";
 
 interface TransactionOverviewProps { }
 

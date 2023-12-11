@@ -5,6 +5,7 @@ import GroupsContent from "./GroupsContent";
 import TransactionContent from "./TransactionContent";
 import GroupDetailsContent from "./GroupDetailsContent";
 import CreateGroupContent from "./CreateGroupContent";
+import TransactionDetailsContent from "./TransactionDetailsContent";
 
 export {
   LandingContent,
@@ -13,5 +14,6 @@ export {
   TransactionContent,
   GroupsContent,
   GroupDetailsContent,
-  CreateGroupContent
+  CreateGroupContent,
+  TransactionDetailsContent
 };

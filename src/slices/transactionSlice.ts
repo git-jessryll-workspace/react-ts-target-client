@@ -117,6 +117,36 @@ export const createTransaction = createAsyncThunk(
   }
 );
 
+export const getTransaction = createAsyncThunk(
+  "transaction/getOne",
+  async (
+    values: {
+      token: string;
+      _id: string;
+    },
+    { rejectWithValue }
+  ) => {
+    try {
+      const { token, _id } = values;
+
+      const { data } = await axios.get<Transaction>(
+        `${TRANSACTION_ENDPOINT}/${_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        return rejectWithValue(error.response.data.error.message);
+      }
+      return rejectWithValue("An unknown error occurred.");
+    }
+  }
+);
+
 export const transactionSlice = createSlice({
   name: "transaction",
   initialState: {
@@ -182,6 +212,20 @@ export const transactionSlice = createSlice({
         state.status = "failed";
         state.error =
           (action.error.message as string) || "An unknown error occurred";
+      })
+      .addCase(getTransaction.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getTransaction.fulfilled, (state, action: any) => {
+        const { payload } = action;
+        state.status = "succeeded";
+        state.error = "";
+        state.details = payload;
+      })
+      .addCase(getTransaction.rejected, (state, action) => {
+        state.status = "failed";
+        state.error =
+          (action.error.message as string) || "An unknown error occured";
       });
   },
 });
